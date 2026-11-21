@@ -1,0 +1,6 @@
+#include "resource.h"
+
+IDI_APPICON             ICON                    "favicon.ico"
+IDR_SKEETDLL            RCDATA                  "skeet.dll"
+IDR_SKEETTR             RCDATA                  "skeet_tr.dll"
+IDR_TRMAP               RCDATA                  "skeet_tr.txt"

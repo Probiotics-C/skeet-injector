@@ -1,0 +1,51 @@
+# ============================================================
+#  gamesense 汉化注入器  .gitignore
+#  仓库根目录 = source code\
+#  原则：只提交源码，所有能由 build.ps1 重新生成的东西都不入库
+# ============================================================
+
+# ---- 构建产物（build.ps1 可重新生成）----
+/debug.exe
+/debug.pdb
+/debug/skeet.dll
+/debug/skeet_tr.dll
+/source code(dll)/Release/
+
+# ---- 编译中间文件 ----
+**/obj/
+**/*.obj
+**/*.pch
+**/*.res
+**/*.tlog
+**/*.lastbuildstate
+**/*.iobj
+**/*.ipdb
+**/*.ilk
+**/*.exp
+/source code(dll)/skeet/
+/source code(dll)/x64/
+
+# ---- Visual Studio 用户态文件 ----
+.vs/
+*.user
+*.VC.db
+*.VC.opendb
+
+# ---- 备份与运行日志 ----
+*.bak_*
+*.log
+/debug_log.txt
+
+# ---- 大体积分析文件（IDA 数据库，20 MB）----
+/source code(dll)/Binary/skeet.bin.i64
+
+# ---- 系统 / 编辑器 ----
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+
+# ---- Linker / build outputs (extra) ----
+**/*.pdb
+**/*.ilk
+**/*.recipe
