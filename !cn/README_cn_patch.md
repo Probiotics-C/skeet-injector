@@ -1,7 +1,7 @@
-# gamesense 破解(1star 修复版) —— 中文补丁适配说明
+# 目标客户端本地化补丁适配说明（1star 修复版）
 
 ## 背景
-hrisitosense 版破解支持两份中文补丁文件(放在 CSGO 游戏根目录, 即 csgo.exe 所在目录):
+参考实现支持两份本地化文件(放在 CSGO 游戏根目录, 即 csgo.exe 所在目录):
 
 - `language.txt` —— UTF-8 编码的 "英文=中文" 对照表(带 `language=chinese` / `compatibility=true` 头部行)
 - `GenSenMaruGothic TW TTF Medium.ttf` —— 中文菜单字体
@@ -42,7 +42,7 @@ Visual Studio 打开 `skeet.sln` → 选择 `Release | Win32` → 生成。
 
 ## 使用
 保持 `language.txt` 和 `GenSenMaruGothic TW TTF Medium.ttf` 在游戏根目录
-(放 skeet.dll 同目录亦可, 代码会两种都找), 正常用 1star.exe 注入即可。
+(放 skeet.dll 同目录亦可, 代码会两种都找), 正常用 1star.exe 加载即可。
 
 ## 已验证
 - 编译通过(v143 工具集实测), 产出 skeet.dll(约 13.9 MB)

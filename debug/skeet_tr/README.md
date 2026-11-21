@@ -1,6 +1,6 @@
-# skeet_tr — 菜单文本翻译模块（测试版）
+# 本地化模块 — 菜单文本翻译（测试版）
 
-被 `debug.exe` 在注入 `skeet.dll` 之后**自动注入**（内嵌 RCDATA 103），把渲染器 type 10 文字事件里的
+被 `debug.exe` 在加载 `skeet.dll` 之后**自动加载**（内嵌 RCDATA 103），把渲染器 type 10 文字事件里的
 `const wchar_t*` 换成翻译表里的字符串。
 
 ## 1. 挂接点（静态反汇编验证）
@@ -163,7 +163,7 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1 -Configuration Debug
 `%TEMP%\skeet_tr.log`（每次加载重写）：
 
 ```
-gamesense skeet_tr log
+localization module log
 entries=1, waiting for image...
 image ready, slot=0x4346F4A8 -> 0x4339D0B8
 hooked, hook=0x... -> 0x4339D0B8
@@ -181,7 +181,7 @@ loader 侧日志（`debug_log.txt`）会多两行：
 
 ```
 embedded skeet_tr.dll size=16896
-inject_dll(skeet_tr) -> ok (took 31 ms)
+load_dll(skeet_tr) -> ok (took 31 ms)
 ```
 
 ## 5.1 字体诊断与 CJK 追加
@@ -230,6 +230,6 @@ cjk: font appended to chains
   剩下的只是字体（需要 `cn_patch` 的字体替换生效，或菜单本身用的字体带 CJK）。
 - 只挂 `type 10`（菜单/文字绘制）；控制台、Steam overlay 文字不走这条虚表。
 - 挂钩幂等：槽里已经是本模块地址时直接返回，不会重复包一层。
-- 每次注入都是新的模块实例（旧的在 %TEMP% 里留下的 `gs_*.dll` 由 loader 下次清理）。
-- 作弊 unload / 进程退出时不还原虚表——槽会指向已释放模块，但那时进程已经结束，无需处理。
+- 每次加载都是新的模块实例（旧的在 %TEMP% 里留下的 `gs_*.dll` 由 loader 下次清理）。
+- 模块卸载 / 进程退出时不还原虚表——槽会指向已释放模块，但那时进程已经结束，无需处理。
 - 文本按 UTF-16 处理，替换串比原文长也没关系（原来的 `text_measure` 会重新量宽度）。
