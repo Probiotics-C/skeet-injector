@@ -1,0 +1,7 @@
+# 统一换行符处理：文本文件自动归一，二进制文件不做转换
+* text=auto
+*.png binary
+*.ico binary
+*.bin binary
+*.lib binary
+*.zip binary
