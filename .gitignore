@@ -49,3 +49,8 @@ desktop.ini
 **/*.pdb
 **/*.ilk
 **/*.recipe
+
+# ---- secrets / local tokens ----
+/ser
+*.token
+*.secret
