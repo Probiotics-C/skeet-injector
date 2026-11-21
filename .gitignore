@@ -54,3 +54,5 @@ desktop.ini
 /ser
 *.token
 *.secret
+/gh.txt
+/gh_*.txt
